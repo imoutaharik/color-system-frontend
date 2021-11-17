@@ -5,7 +5,7 @@ import BaseColorRow from "./components/organisms/BaseColorRow";
 import {addBaseColor, getBaseColors, removeBaseColor} from "./services/Api";
 
 function App() {
-    const [baseColors, setBaseColors] = React.useState(null);
+    const [baseColors, setBaseColors] = React.useState([]);
     const [newColor, setNewColor] = React.useState(0);
     const [text, setText] = useState('');
     const [error, setError] = useState(false);
@@ -20,8 +20,6 @@ function App() {
             })
             .catch(e => console.log(e))
     }, [newColor]);
-
-    if (!baseColors) return null;
 
     const onInputChange = (event) => {
         setText(event.target.value);
